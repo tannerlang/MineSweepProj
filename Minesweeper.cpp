@@ -73,8 +73,8 @@ int main()
 	{
 		Vector2i mous = Mouse::getPosition(MineSweep);	//create a vector from sfml lib called mouse, set it equal to the real time mouse
 														//location in the Minesweep window using the sfml getPosition lib function.
-		int x = mous.x;
-		int y = mous.y;									//initiate x and y vars and set them = to the current coordinates.
+		int x = mous.x / w;
+		int y = mous.y / w;									//initiate x and y vars and set them = to the current coordinates.
 
 		Event ev;
 		while (MineSweep.pollEvent(ev))		//checks to see if SFML class Event ev is active, will proceed if true.
