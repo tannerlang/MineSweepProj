@@ -27,7 +27,7 @@ void Game::buildGrid(int grid[][12], int sgrid[][12])
 
 //-----------------------
 
-void Game::LayMines(int grid[][12], int sgrid[][12])
+void Game::MineCheck(int grid[][12], int sgrid[][12])
 {
 	for (int i = 1; i <= 10; i++)
 	{
@@ -114,6 +114,6 @@ void Game::play()
 {
 	Game MineSweeper;
 	MineSweeper.buildGrid(grid,sgrid);
-	MineSweeper.LayMines(grid,sgrid);
+	MineSweeper.MineCheck(grid,sgrid);
 	MineSweeper.GameOpen(grid,sgrid,w);
 }
