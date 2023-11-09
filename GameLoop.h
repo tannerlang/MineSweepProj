@@ -14,7 +14,7 @@ private:
 public:
 	
 	void buildGrid(int grid[][12], int sgrid[][12]);
-	void LayMines(int grid[][12], int sgrid[][12]);
+	void MineCheck(int grid[][12], int sgrid[][12]);
 	void GameOpen(int grid[][12], int sgrid[][12], int w);
 	void play();
 };
