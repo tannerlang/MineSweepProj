@@ -36,7 +36,7 @@
 		{
 			for (int j = 1; j <= 10; j++)
 			{
-				sgrid[i][j] = 10;
+				sgrid[i][j] = 10;		//blank tile 
 
 
 				if (rand() % 5 == 0)	//if the random seed is divisible by 5 then set the grid equal to 9
@@ -52,7 +52,7 @@
 		//----------Fill Number Cells---------------------------------
 		for (int i = 1; i <= 10; i++)
 		{
-			for (int j = 1; j <= 10; j++)
+			for (int j = 1; j <= 10; j++)				////checks avery adjacent cell, if there is a bomb adjacent, increments n.
 			{
 				int n = 0;
 				if (grid[i][j] == 9) continue;
@@ -64,9 +64,14 @@
 				if (grid[i + 1][j + 1] == 9) n++;
 				if (grid[i - 1][j - 1] == 9) n++;
 				if (grid[i - 1][j + 1] == 9) n++;
-				if (grid[i + 1][j - 1] == 9) n++;
+				if (grid[i + 1][j - 1] == 9) n++;	
 
 				grid[i][j] = n;						//to be used to place the number texture on each respective cell, depending what n sets that cell 
+			}										//equal to.
+		}
+	}
+
+#endif					//to be used to place the number texture on each respective cell, depending what n sets that cell 
 			}										//equal to.
 		}
 	}
