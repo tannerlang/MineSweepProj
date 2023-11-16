@@ -25,7 +25,8 @@ void Gameloop(sf::RenderWindow& MineSweep,sf::Sprite& Sp, sf::Texture& tile,Boar
 			if (ev.key.code == sf::Mouse::Left)
 			{
 				b.sgrid[x][y] = b.grid[x][y];			//if the left mouse button is clicked, set the sgrid cell spot (blank grid) at... 
-														//the mouse coordinates equal to the populated grid to reveal what is in the cell beneath;							
+														//the mouse coordinates equal to the populated grid to reveal what is in the cell beneath;
+														// then uses "n" value from							
 				switch (Player)							
 				{
 				case 1:
@@ -75,8 +76,11 @@ void Gameloop(sf::RenderWindow& MineSweep,sf::Sprite& Sp, sf::Texture& tile,Boar
 				}
 			}
 
-			Sp.setTextureRect(sf::IntRect(b.sgrid[i][j] * b.w, 0, b.w, b.w));	
-			Sp.setPosition(i * b.w, j * b.w);
+			Sp.setTextureRect(sf::IntRect(b.sgrid[i][j] * b.w, 0, b.w, b.w));	//sets only a small part of the tile image to be displayed...
+																				//breaks up sprite w tile image (Sp) to be show respective "value"
+																				//note: sgrid = grid if it was left clicked, its value would be the 'n' value... 
+																				//...from constructor function
+			Sp.setPosition(i * b.w, j * b.w);													
 			MineSweep.draw(Sp);							//using the sprite variable 'sp' that uses the tile image for texture, draws the images									
 		}												//of the respecive tile and whats on them.
 	}
@@ -111,7 +115,7 @@ int main()
 
 	P1Loss.setFont(font);
 	P1Loss.setFont(font);
-	P1Loss.setString("Player 1 Lost!");
+	P1Loss.setString("Player 1 Lost the Game!");
 	P1Loss.setCharacterSize(30);
 	P1Loss.setFillColor(sf::Color::Black);
 	P1Loss.setStyle(sf::Text::Bold);
@@ -119,7 +123,7 @@ int main()
 
 	P2Loss.setFont(font);
 	P2Loss.setFont(font);
-	P2Loss.setString("Player 2 Lost!");
+	P2Loss.setString("Player 2 Lost the Game!");
 	P2Loss.setCharacterSize(30);
 	P2Loss.setFillColor(sf::Color::Black);
 	P2Loss.setStyle(sf::Text::Bold);
